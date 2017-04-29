@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/create.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ greeting }}">Connex.us</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="/management">Manage</a></li>
+            <li><a href="/create">Create</a></li>
+            <li><a href="/view">View</a></li>
+            <li><a href="/search">Search</a></li>
+            <li><a href="/trending">Trending</a></li>
+            <li><a href="/social">Social</a></li>
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="jumbotron">
+      <div class="container">
+        <div class="panel panel-primary" >
+            <div class="panel-heading"><b>Create a Connexus Stream</b></div>
+            <div class="panel-body">
+              <form action="/new_stream" method="post">
+                <div class="form-group col-md-6">
+                  <textarea class = "FormElement" name="streamname" cols="20" rows="3" placeholder="Austin Community College" ></textarea>
+                  <label class="pull-left">Name your stream</label>
+                </div>
+                <div class="form-group col-md-6">
+                   <textarea class = "FormElement" name="tag" cols="20" rows="5" placeholder="#AustinCommunityCollege, #Texas, #AlexsFriends, #FB:schools.austin.LLC" ></textarea>
+                    <label>Tag your stream</label>
+                </div>
+                <div class="form-group col-md-6">
+                    <textarea class = "FormElement" name="subscriber" cols="20" rows="3" placeholder="alex@facebook.com, alexsdad@acc.edu, alexsmom@acc.edu" ></textarea>                    
+                    <p>&nbsp</p>
+                    <textarea class = "FormElement" name="message" cols="30" rows="5" placeholder="Optional message for invite" ></textarea>
+                    <label>Add subscribers</label>
+                </div>
+                <div class="form-group col-md-6">
+                    <textarea class = "FormElement" name="urlcover" cols="30" rows="5" placeholder="https://static1.squarespace.com/static/528cd4d8e4b0c3afb6328534/t/545d09fae4b085cc73a0c25b/1415383547736/ACC_roundrock.jpg" ></textarea>
+                    <label>URL to cover iamge (can be empty)</label>
+                </div>
+                <div class="form-group col-md-12">
+                    <button type="submit"  class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Create Stream</button>
+                </div>
+              </form>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+      <section class="call-to-action">
+        <div class="row">
+          <div class="col-md-4">
+            <span class="glyphicon glyphicon-pencil glyphicon-large" aria-hidden="true"></span>
+            <h3>Name your Stream</h3>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+          </div>
+          <div class="col-md-4">
+            <span class="glyphicon glyphicon-plus glyphicon-large" aria-hidden="true"></span>
+            <h3>Tag your Stream</h3>
+            <p>Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. Lorem ipsum dolor.</p>
+          </div>
+          <div class="col-md-4">
+            <span class="glyphicon glyphicon-cloud glyphicon-large" aria-hidden="true"></span>
+            <h3>Post your Stream</h3>
+            <p>Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+          </div>
+        </div>
+     </section>
+    </div>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+
+</html>

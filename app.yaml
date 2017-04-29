@@ -1,0 +1,87 @@
+
+runtime: python27
+api_version: 1
+threadsafe: true
+
+# [START handlers]
+handlers:
+- url: /(favicon\.ico)
+  static_files: static/\1
+  upload: static/(.*)
+  expiration: '1d'  
+- url: /css
+  static_dir: css
+- url: /script
+  static_dir: script
+
+- url: /logout
+  script: main.app
+- url: /
+  script: main.app
+
+- url: /management
+  script: src.management.app
+- url: /create_stream
+  script: src.management.app
+- url: /delete_stream
+  script: src.management.app
+- url: /unsubscribe
+  script: src.management.app
+
+- url: /create
+  script: src.create.app
+- url: /new_stream
+  script: src.create.app
+
+- url: /view
+  script: src.view.app
+- url: /view_all_streams
+  script: src.view.app
+- url: /view_subscribed_streams
+  script: src.view.app
+- url: /stream
+  script: src.view.app
+- url: /view_a_stream
+  script: src.view.app
+- url: /subscribe\.action
+  script: src.view.app
+- url: /unsubscribe\.action
+  script: src.view.app
+
+- url: /get_upload_url
+  script: src.upload.app
+- url: /upload_mobile
+  script: src.upload.app
+- url: /upload-handler
+  script: src.upload.app
+- url: /upload-url-handler
+  script: src.upload.app
+- url: /(.+)/([^/]+)/([^/]+)
+  script: src.upload.app
+
+- url: /search
+  script: src.search.app
+- url: /search_mobile
+  script: src.search.app
+- url: /rebuildindex\.action
+  script: src.search.app
+- url: /cronrebuildindex.*
+  script: src.search.app
+
+- url: /trending.*
+  script: src.trend.app
+- url: /cronemail.*
+  script: src.trend.app
+
+- url: /.*
+  script: src.social.app
+
+# [END handlers]
+
+# [START libraries]
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest
+# [END libraries]
