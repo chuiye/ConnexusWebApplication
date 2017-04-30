@@ -1,9 +1,10 @@
 import webapp2
 import datetime
+import os
 
 from google.appengine.api import users
 from google.appengine.api import mail
-from jinja2 import Environment, PackageLoader
+from jinja2 import Environment, FileSystemLoader
 
 from components import streambook_key, Stream
 
@@ -18,7 +19,7 @@ class Trend(webapp2.RequestHandler):
             self.redirect('/')
             return
 
-        env = Environment(loader=PackageLoader('main', 'templates'))
+        env = Environment(loader=FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates')))
         template = env.get_template('trending.html')
 
         streams = Stream.query(

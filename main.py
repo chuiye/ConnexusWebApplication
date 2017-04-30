@@ -4,7 +4,7 @@ import urllib
 
 from google.appengine.api import users
 
-from jinja2 import Environment, PackageLoader
+from jinja2 import Environment,  FileSystemLoader
 import webapp2
 # [END imports]
 
@@ -19,8 +19,8 @@ class MainPage(webapp2.RequestHandler):
             return
             #url = users.create_logout_url('/')
             #self.redirect(url)
-            
-        JINJA_ENVIRONMENT = Environment(loader=PackageLoader('main', 'templates'))
+
+        JINJA_ENVIRONMENT = Environment(loader=FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates')))
         template = JINJA_ENVIRONMENT.get_template('index.html')
         greeting = users.create_login_url('/')
         template_values = {

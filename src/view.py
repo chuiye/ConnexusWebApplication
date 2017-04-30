@@ -1,11 +1,12 @@
 import webapp2
 import datetime
+import os
 import json
 
 from google.appengine.api import users
 from google.appengine.api import images
 
-from jinja2 import Environment, PackageLoader
+from jinja2 import Environment, FileSystemLoader
 
 from components import streambook_key, Stream, Photo
 
@@ -17,7 +18,7 @@ class ViewAllStream(webapp2.RequestHandler):
             self.redirect('/')
             return
 
-        env = Environment(loader=PackageLoader('main', 'templates'))
+        env = Environment(loader=FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates')))
         template = env.get_template('view.html')
 
         streams = Stream.query(
@@ -87,7 +88,7 @@ class ViewStream(webapp2.RequestHandler):
                 self.redirect('/')
                 return
 
-            env = Environment(loader=PackageLoader('main', 'templates'))
+            env = Environment(loader=FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates')))
             template = env.get_template('stream.html')
 
             stream_name = self.request.get("name")

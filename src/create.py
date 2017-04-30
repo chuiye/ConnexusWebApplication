@@ -1,9 +1,10 @@
 import webapp2
+import os
 
 from google.appengine.api import mail
 from google.appengine.api import users
 
-from jinja2 import Environment, PackageLoader
+from jinja2 import Environment, FileSystemLoader
 from components import Stream, streambook_key, Author
 
 
@@ -14,7 +15,7 @@ class Create(webapp2.RequestHandler):
             self.redirect('/')
             return
 
-        env = Environment(loader=PackageLoader('main', 'templates'))
+        env = Environment(loader=FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates')))
         template = env.get_template('create.html')
         self.response.write(template.render())
 

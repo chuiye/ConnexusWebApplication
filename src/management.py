@@ -1,8 +1,9 @@
 import webapp2
+import os
 
 from google.appengine.api import users
 from google.appengine.ext import blobstore
-from jinja2 import Environment, PackageLoader
+from jinja2 import Environment, FileSystemLoader
 
 from components import streambook_key, Stream, Photo
 
@@ -14,7 +15,7 @@ class Management(webapp2.RequestHandler):
             self.redirect('/')
             return
 
-        env = Environment(loader=PackageLoader('main', 'templates'))
+        env = Environment(loader=FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates')))
         template = env.get_template('management.html')
 
         streams = Stream.query(

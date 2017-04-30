@@ -1,7 +1,8 @@
 import webapp2
+import os
 
 from google.appengine.api import users
-from jinja2 import Environment, PackageLoader
+from jinja2 import Environment, FileSystemLoader
 
 
 class Social(webapp2.RequestHandler):
@@ -18,7 +19,7 @@ class Social(webapp2.RequestHandler):
             'msg_4': "operation did not complete",
             'msg_5': "Or this page does not exist"
         }
-        env = Environment(loader=PackageLoader('main', 'templates'))
+        env = Environment(loader=FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates')))
         template = env.get_template('social.html')
 
         self.response.write(template.render(error))

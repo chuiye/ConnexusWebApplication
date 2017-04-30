@@ -1,7 +1,8 @@
 import webapp2
+import os
 import json
 from google.appengine.api import users
-from jinja2 import Environment, PackageLoader
+from jinja2 import Environment, FileSystemLoader
 
 from components import streambook_key, Stream
 
@@ -17,7 +18,7 @@ class Search(webapp2.RequestHandler):
             self.redirect('/')
             return
 
-        env = Environment(loader=PackageLoader('main', 'templates'))
+        env = Environment(loader=FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates')))
         template = env.get_template('search.html')
 
         all_streams = Stream.query(
@@ -43,7 +44,7 @@ class Search(webapp2.RequestHandler):
         self.response.write(template.render(init))
 
     def post(self):
-        env = Environment(loader=PackageLoader('main', 'templates'))
+        env = Environment(loader=FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates')))
         template = env.get_template('search.html')
 
         all_streams = Stream.query(
@@ -134,7 +135,7 @@ class Cronrebuildindex_day(webapp2.RequestHandler):
         if RebuildIndex.be_click == 1:
             if Search.initial == True:
 
-                env = Environment(loader=PackageLoader('main', 'templates'))
+                env = Environment(loader=FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates')))
                 template = env.get_template('search.html')
 
                 all_streams = Stream.query(
@@ -160,7 +161,7 @@ class Cronrebuildindex_day(webapp2.RequestHandler):
                 self.response.write(template.render(init))
 
             elif Search.initial == False:
-                env = Environment(loader=PackageLoader('main', 'templates'))
+                env = Environment(loader=FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates')))
                 template = env.get_template('search.html')
 
                 all_streams = Stream.query(
