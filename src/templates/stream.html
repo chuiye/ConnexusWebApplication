@@ -98,9 +98,9 @@
                                   <!-- The fileinput-button span is used to style the file input field as button -->
                                 <span class="btn btn-success fileinput-button">
                                     <span>Add files...</span>
-                                    <input type="file" name="files[]" multiple>
+                                    <input id = "addFileId" type="file" name="files[]" multiple>
                                 </span>
-                                <button type="submit" class="btn btn-primary start"><span>Start upload</span></button>
+                                <button id = "startUploadId" type="submit" class="btn btn-primary start"><span>Start upload</span></button>
                                 <button type="reset" class="btn btn-warning cancel"><span>Cancel upload</span></button>
                                     <!-- The global file processing state -->
                                 <span class="fileupload-process"></span>
@@ -138,7 +138,7 @@
                             </td>
                             <td>
                                 {% if (!i && !o.options.autoUpload) { %}
-                                    <button class="btn btn-primary start" disabled>
+                                    <button id = "uploadStartButton" class="btn btn-primary start" disabled>
                                         <span>Start</span>
                                     </button>
                                 {% } %}

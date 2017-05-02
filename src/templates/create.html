@@ -43,11 +43,11 @@
             <div class="panel-body">
               <form action="/new_stream" method="post">
                 <div class="form-group col-md-6">
-                  <textarea class = "FormElement" name="streamname" cols="20" rows="3" placeholder="Austin Community College" ></textarea>
+                  <textarea id = "streamNameId" class = "FormElement" name="streamname" cols="20" rows="3" placeholder="Austin Community College" ></textarea>
                   <label class="pull-left">Name your stream</label>
                 </div>
                 <div class="form-group col-md-6">
-                   <textarea class = "FormElement" name="tag" cols="20" rows="5" placeholder="#AustinCommunityCollege, #Texas, #AlexsFriends, #FB:schools.austin.LLC" ></textarea>
+                   <textarea id = "tagId" class = "FormElement" name="tag" cols="20" rows="5" placeholder="#AustinCommunityCollege, #Texas, #AlexsFriends, #FB:schools.austin.LLC" ></textarea>
                     <label>Tag your stream</label>
                 </div>
                 <div class="form-group col-md-6">
@@ -57,11 +57,11 @@
                     <label>Add subscribers</label>
                 </div>
                 <div class="form-group col-md-6">
-                    <textarea class = "FormElement" name="urlcover" cols="30" rows="5" placeholder="https://static1.squarespace.com/static/528cd4d8e4b0c3afb6328534/t/545d09fae4b085cc73a0c25b/1415383547736/ACC_roundrock.jpg" ></textarea>
+                    <textarea id = "coverId" class = "FormElement" name="urlcover" cols="30" rows="5" placeholder="https://static1.squarespace.com/static/528cd4d8e4b0c3afb6328534/t/545d09fae4b085cc73a0c25b/1415383547736/ACC_roundrock.jpg" ></textarea>
                     <label>URL to cover iamge (can be empty)</label>
                 </div>
                 <div class="form-group col-md-12">
-                    <button type="submit"  class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Create Stream</button>
+                    <button id = "createButtonId" type="submit"  class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Create Stream</button>
                 </div>
               </form>
             </div>
