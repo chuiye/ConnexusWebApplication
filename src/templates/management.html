@@ -73,7 +73,7 @@
                                     <td>{{ stream.date.strftime("%A %b %d %H:%M:%S %Z %Y") }}</td>
                                 {% endif %}
                                 <td>{{ stream.num_of_imgs }}</td>
-                                <td><input type="checkbox" name={{ stream.name }}></td>
+                                <td><input id = {{loop.index0}} type="checkbox" name={{ stream.name }}></td>
                             </tr>
                         {% endfor %}
                       {% else %}

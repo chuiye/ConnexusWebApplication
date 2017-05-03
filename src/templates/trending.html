@@ -68,7 +68,7 @@
                                   <div id="image" class="panel-body">
                                       <figure>
                                           <a href="/stream?name={{ firststream.name }}">
-                                              <img src="{{ firststream.cover_img }}" class="img-responsive img-rounded displayed" alt={{ firststream.name }}>
+                                              <img id = "0" src="{{ firststream.cover_img }}" class="img-responsive img-rounded displayed" alt={{ firststream.name }}>
                                               <figcaption>{{firststream.name}}</figcaption>
                                               <figcaption>{{firststream.view_dates.__len__()}} views</figcaption>
                                               <figcaption>in past hour</figcaption>
@@ -82,7 +82,7 @@
                                   <div id="image" class="panel-body">
                                       <figure>
                                           <a href="/stream?name={{ secondstream.name }}">
-                                              <img src="{{ secondstream.cover_img }}" class="img-responsive img-rounded displayed" alt={{ secondstream.name }}>
+                                              <img id = "1" src="{{ secondstream.cover_img }}" class="img-responsive img-rounded displayed" alt={{ secondstream.name }}>
                                               <figcaption>{{secondstream.name}}</figcaption>
                                               <figcaption>{{secondstream.view_dates.__len__()}} views</figcaption>
                                               <figcaption>in past hour</figcaption>
